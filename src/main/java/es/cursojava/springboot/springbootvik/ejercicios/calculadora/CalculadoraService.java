@@ -1,4 +1,4 @@
-package es.cursojava.springboot.springbootvik.ejercicios;
+package es.cursojava.springboot.springbootvik.ejercicios.calculadora;
 
 import org.springframework.stereotype.Service;
 
