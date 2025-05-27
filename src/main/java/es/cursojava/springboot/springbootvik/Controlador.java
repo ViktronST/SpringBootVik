@@ -53,7 +53,10 @@ public class Controlador {
     // http://localhost:9091/start/get.do?numero=666 
     // Es una petición dinámica, el nombre pepito puede ser cualquier cosa, ya que solo se leerá lo que este entre la / y .do
     @RequestMapping("/{pepito}.do")
-    public String printHelloGet(ModelMap model, @PathVariable("pepito") String accion, @RequestParam("numero") String param) {
+    public String printHelloGet(ModelMap model, 
+            @PathVariable("pepito") String accion, 
+            @RequestParam("numero") String param) {
+
         System.out.println("printHelloGet entra");
         if (accion.toUpperCase().equals("GET")) {
             model.addAttribute("mensaje", "Action get called with parameter " + param);
