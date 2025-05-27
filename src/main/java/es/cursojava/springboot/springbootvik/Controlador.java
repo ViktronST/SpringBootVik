@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.ModelMap;
+import java.time.LocalDate;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -42,7 +43,7 @@ public class Controlador {
 
     // http://localhost:9091/start/inicio?param1=3
     @RequestMapping(value="/inicio", method=RequestMethod.POST)
-    public String metodo3(Model model, HttpServletRequest request) {
+    public String metodo3(Model model, HttpServletRequest request, LocalDate fecha) {
         System.out.println("Mi primer controlador de Spring Boot");
         String valor = request.getParameter("param1");
         model.addAttribute("mensaje", "Viktor Stoyanov");
