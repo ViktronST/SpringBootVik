@@ -9,12 +9,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import es.cursojava.springboot.springbootvik.repositories.HorseRepository;
+
 @Controller
 @RequestMapping(value="/horse")
 public class HorseController {
 
     @Autowired
     private Horse horseObject;
+
+    @Autowired
+    private HorseRepository horseRep;
 
     // http://localhost:9091/horse/horseInfo
     @GetMapping(value="/horseInfo")
@@ -26,6 +31,7 @@ public class HorseController {
     // http://localhost:9091/horse/processHorse
     @PostMapping(value="/processHorse")
     public String processHorse(@ModelAttribute Horse horse, Model model) {
+        horseRep.save(horse); // Save the horse object to the database
         model.addAttribute("horseProcessed", horse);
         return "form/resultado";
     }
@@ -33,11 +39,11 @@ public class HorseController {
     //===============================================================================
 
     // http://localhost:9091/horse/horseInfoMV
-    @GetMapping(value="/getHorseInfoMV")
-    public ModelAndView getHorseInfoMV(Model model) {
-        // model.addAttribute("horseAtribute", horseObject);
-        // return new ModelAndView("form/HorseForm");
-        return new ModelAndView("form/HorseForm", "horse", horseObject);
-    }
+    // @GetMapping(value="/getHorseInfoMV")
+    // public ModelAndView getHorseInfoMV(Model model) {
+    //     // model.addAttribute("horseAtribute", horseObject);
+    //     // return new ModelAndView("form/HorseForm");
+    //     return new ModelAndView("form/HorseForm", "horse", horseObject);
+    // }
 
 }

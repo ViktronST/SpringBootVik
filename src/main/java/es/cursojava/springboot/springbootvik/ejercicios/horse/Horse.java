@@ -1,9 +1,20 @@
 package es.cursojava.springboot.springbootvik.ejercicios.horse;
 
 import org.springframework.stereotype.Component;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
 @Component
+@Table(name = "TB_HORSES")
 public class Horse {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private int age;
     private double maxSpeed;
