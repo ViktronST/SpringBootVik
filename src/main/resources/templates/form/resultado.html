@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resultado</title>
+</head>
+<body>
+    <h1>Datos recibidos</h1>
+    <p>Name: <span th:text="${horseProcessed.name}"></span></p>
+    <p>Age: <span th:text="${horseProcessed.age}"></span></p>
+    <p>Max Speed: <span th:text="${horseProcessed.maxSpeed}"></span></p>
+    <p>Num Triumphs: <span th:text="${horseProcessed.numTriumphs}"></span></p>
+    <p>Experience: <span th:text="${horseProcessed.experience}"></span></p>
+    <!-- <p>Is Active: <span th:text="${horseProcessed.active}"></span></p> -->
+    <!-- <p>Is Active: 
+        <span th:text="${horseProcessed.active == 1 ? 'Yes' : 'No'}"></span>
+    </p> -->
+</body>
+</html>

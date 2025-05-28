@@ -1,28 +1,28 @@
-package es.cursojava.springboot.springbootvik.ejercicios.caballos;
+package es.cursojava.springboot.springbootvik.ejercicios.horse;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
-public class HorseService {
+@Component
+public class Horse {
     private String name;
     private int age;
     private double maxSpeed;
     private int numTriumphs;
     private int experience;
-    private boolean isActive;
+    private boolean active;
 
     // Default constructor
-    public HorseService() {
+    public Horse() {
     }
 
     // Constructor with parameters
-    public HorseService(String name, int age, double maxSpeed, int numTriumphs, int experience, boolean isActive) {
+    public Horse(String name, int age, double maxSpeed, int numTriumphs, int experience, boolean active) {
         this.name = name;
         this.age = age;
         this.maxSpeed = maxSpeed;
         this.numTriumphs = numTriumphs;
         this.experience = experience;
-        this.isActive = isActive;
+        this.active = active;
     }
 
     // Getters and Setters
@@ -67,10 +67,10 @@ public class HorseService {
     }
 
     public boolean isActive() {
-        return isActive;
+        return active;
     }
 
-    public void setActive(boolean isActive) {
-        this.isActive = isActive;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
