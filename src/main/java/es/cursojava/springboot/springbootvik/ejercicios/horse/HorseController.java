@@ -28,7 +28,7 @@ public class HorseController {
     @GetMapping(value="/horseInfo")
     public String getHorseInfo(Model model) {
         model.addAttribute("horse", horseObject);
-        return "form/HorseForm";
+        return "form/horses/HorseForm";
     }
 
     // http://localhost:9091/horse/processHorse
@@ -36,7 +36,7 @@ public class HorseController {
     public String processHorse(@ModelAttribute Horse horse, Model model) {
         horseRep.save(horse); // Save the horse object to the database
         model.addAttribute("horseProcessed", horse);
-        return "form/resultado";
+        return "form/horses/resultado";
     }
 
     //===============================================================================
@@ -53,14 +53,14 @@ public class HorseController {
 
     @GetMapping("/listHorse")
 	public ModelAndView list(Model model) {
-		return new ModelAndView("form/HorseList","list", horseRep.findAll());
+		return new ModelAndView("form/horses/HorseList","list", horseRep.findAll());
 	}
 	
 	@PostMapping("/filterHorse")
-	public ModelAndView filter(Model model, @RequestParam ("nombre_caballo") String nombre) {
+	public ModelAndView filter(Model model, @RequestParam ("name") String name) {
 		
-		List<Horse> caballosFiltrados =  horseRep.findByNombreStartsWithIgnoreCase(nombre);
+		List<Horse> filterHorses =  horseRep.findByNameStartsWithIgnoreCase(name);
 				
-		return new ModelAndView("caballos/listado_caballos","lista", caballosFiltrados);
+		return new ModelAndView("form/horses/HorseList","list", filterHorses);
 	}
 }

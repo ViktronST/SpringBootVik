@@ -8,6 +8,6 @@ import es.cursojava.springboot.springbootvik.ejercicios.horse.Horse;
 
 public interface HorseRepository extends JpaRepository<Horse, Integer> {
 
-    public List<Horse> findByNombreStartsWithIgnoreCase(String nombre);
+    public List<Horse> findByNameStartsWithIgnoreCase(String name);
 
 }

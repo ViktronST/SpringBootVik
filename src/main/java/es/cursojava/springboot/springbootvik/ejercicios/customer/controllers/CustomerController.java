@@ -27,7 +27,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/customer")
-@SessionAttributes("customer")//Esta anotaci�n sirve para acceder o establecer las variable de sesi�n. Las variables se declaran en la clase
+@SessionAttributes("customer")//Esta anotación sirve para acceder o establecer las variable de sesión. Las variables se declaran en la clase.
 public class CustomerController {
 
 	@Autowired
@@ -44,7 +44,7 @@ public class CustomerController {
 		
 		System.out.println(session.getAttribute("customer").toString());
 		registro.registraCustomer(customer);
-		return "customers/CustomerSuccess";
+		return "form/customers/CustomerSuccess";
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -68,9 +68,8 @@ public class CustomerController {
 		//command object
 		model.addAttribute("customer", cust);
 
-		
 		//return form view
-		String customerForm = "customers/CustomerForm";
+		String customerForm = "form/customers/CustomerForm";
 		System.out.println(customerForm);
 		return customerForm;
 	}
@@ -95,8 +94,7 @@ public class CustomerController {
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(
-				dateFormat, true));
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 
 	}
 

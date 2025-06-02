@@ -1,0 +1,98 @@
+/* Estilo base del body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #000000, #eef1f6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+/* Título */
+h2 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Formulario principal */
+form {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Etiquetas */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  margin-top: 15px;
+  color: #444;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="password"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+  background-color: #fefefe;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #6b9df1;
+  outline: none;
+}
+
+/* Radio y checkbox */
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+  margin-left: 2px;
+}
+
+/* Botón */
+button[type="submit"] {
+  margin-top: 25px;
+  padding: 12px 20px;
+  background-color: #6b9df1;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #4d83e3;
+}
+
+/* Espaciado de selects */
+select {
+  background-color: #fdfdfd;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  form {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
