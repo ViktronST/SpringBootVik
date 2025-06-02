@@ -1,0 +1,74 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+
+<body>
+	<h2>Hola</h2>
+	<!-- $ para recoger el objeto customer -->
+	<form th:object="${customer}" method="post">
+ 		<label>Nombre:</label>
+	    <input type="text" th:field="*{userName}" /><br/>
+	    
+	    <label>Address:</label>
+	    <textarea th:field="*{address}"></textarea>
+		<br/>
+		<label>Password:</label>
+		<input type="password" th:field="*{password}" /><br/>
+		
+		
+		<label>Confirm Password :</label>
+		<input type="password" th:field="*{confirmPassword}" /><br/>
+
+		<label>Subscribe to newsletter? :</label>
+		<input type="checkbox" th:field="*{receiveNewsletter}" />
+		
+		<label>Sex :</label>
+		<input type="radio" th:field="*{sex}" value="M"/>Male
+		<input type="radio" th:field="*{sex}" value="F"/>Female
+		
+		<br/>
+
+		<!-- * para recoger al campo del objeto customer -->
+		<label>Número:</label>
+		<select th:field="*{numero}">
+		    <option value="">--- Select ---</option>
+		    <option th:each="numero : ${numberList}"
+		            th:value="${numero}"
+		            th:text="${numero}">
+		    </option>
+		</select>
+		
+		<br/>
+		
+		<label>Java Skills :</label>
+		<select th:field="*{javaSkills}">
+		    <option value="">--- Select ---</option>
+		    <option th:each="entry : ${javaSkillsMap.entrySet()}"
+		            th:value="${entry.key}"
+		            th:text="${entry.value}">
+		    </option>
+		</select>
+
+		<br/>
+		
+		<label>Country:</label>
+		<select th:field="*{country}">
+		    <option value="">--- Select ---</option>
+		    <option th:each="entry : ${countryMap.entrySet()}"
+		            th:value="${entry.key}"
+		            th:text="${entry.value}">
+		    </option>
+		</select>
+		<br/>
+
+		<label>Date :</label>
+		<input type="date" th:field="*{date}" />
+		<br/>
+		<input type="hidden" th:field="*{secretValue}" />
+
+		<button type="submit">Enviar</button>
+	</form>
+
+</body>
+</html>

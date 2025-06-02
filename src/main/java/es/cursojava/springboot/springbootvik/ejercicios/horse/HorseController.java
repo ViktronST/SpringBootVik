@@ -1,5 +1,7 @@
 package es.cursojava.springboot.springbootvik.ejercicios.horse;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import es.cursojava.springboot.springbootvik.repositories.HorseRepository;
@@ -46,4 +49,18 @@ public class HorseController {
     //     return new ModelAndView("form/HorseForm", "horse", horseObject);
     // }
 
+    //===============================================================================
+
+    @GetMapping("/listHorse")
+	public ModelAndView list(Model model) {
+		return new ModelAndView("form/HorseList","list", horseRep.findAll());
+	}
+	
+	@PostMapping("/filterHorse")
+	public ModelAndView filter(Model model, @RequestParam ("nombre_caballo") String nombre) {
+		
+		List<Horse> caballosFiltrados =  horseRep.findByNombreStartsWithIgnoreCase(nombre);
+				
+		return new ModelAndView("caballos/listado_caballos","lista", caballosFiltrados);
+	}
 }
